@@ -120,153 +120,20 @@ endif
 " tables
 syn region  luaTableBlock transparent matchgroup=luaTable start="{" end="}" contains=ALLBUT,luaTodo,luaSpecial,luaCond,luaCondElseif,luaCondEnd,luaCondStart,luaBlock,luaRepeatBlock,luaRepeat,luaStatement
 
-syn keyword luaFunc assert collectgarbage dofile error next
-syn keyword luaFunc print rawget rawset tonumber tostring type _VERSION
-
-if lua_version == 4
-  syn keyword luaFunc _ALERT _ERRORMESSAGE gcinfo
-  syn keyword luaFunc call copytagmethods dostring
-  syn keyword luaFunc foreach foreachi getglobal getn
-  syn keyword luaFunc gettagmethod globals newtag
-  syn keyword luaFunc setglobal settag settagmethod sort
-  syn keyword luaFunc tag tinsert tremove
-  syn keyword luaFunc _INPUT _OUTPUT _STDIN _STDOUT _STDERR
-  syn keyword luaFunc openfile closefile flush seek
-  syn keyword luaFunc setlocale execute remove rename tmpname
-  syn keyword luaFunc getenv date clock exit
-  syn keyword luaFunc readfrom writeto appendto read write
-  syn keyword luaFunc PI abs sin cos tan asin
-  syn keyword luaFunc acos atan atan2 ceil floor
-  syn keyword luaFunc mod frexp ldexp sqrt min max log
-  syn keyword luaFunc log10 exp deg rad random
-  syn keyword luaFunc randomseed strlen strsub strlower strupper
-  syn keyword luaFunc strchar strrep ascii strbyte
-  syn keyword luaFunc format strfind gsub
-  syn keyword luaFunc getinfo getlocal setlocal setcallhook setlinehook
-elseif lua_version == 5
-  " Not sure if all these functions need to be highlighted...
-  syn keyword luaFunc _G getfenv getmetatable ipairs loadfile
-  syn keyword luaFunc loadstring pairs pcall rawequal
-  syn keyword luaFunc require setfenv setmetatable unpack xpcall
-  if lua_subversion == 0
-    syn keyword luaFunc gcinfo loadlib LUA_PATH _LOADED _REQUIREDNAME
-  elseif lua_subversion == 1
-    syn keyword luaFunc load module select
-    syn match luaFunc /package\.cpath/
-    syn match luaFunc /package\.loaded/
-    syn match luaFunc /package\.loadlib/
-    syn match luaFunc /package\.path/
-    syn match luaFunc /package\.preload/
-    syn match luaFunc /package\.seeall/
-    syn match luaFunc /coroutine\.running/
-  endif
-  syn match   luaFunc /coroutine\.create/
-  syn match   luaFunc /coroutine\.resume/
-  syn match   luaFunc /coroutine\.status/
-  syn match   luaFunc /coroutine\.wrap/
-  syn match   luaFunc /coroutine\.yield/
-  syn match   luaFunc /string\.byte/
-  syn match   luaFunc /string\.char/
-  syn match   luaFunc /string\.dump/
-  syn match   luaFunc /string\.find/
-  syn match   luaFunc /string\.len/
-  syn match   luaFunc /string\.lower/
-  syn match   luaFunc /string\.rep/
-  syn match   luaFunc /string\.sub/
-  syn match   luaFunc /string\.upper/
-  syn match   luaFunc /string\.format/
-  syn match   luaFunc /string\.gsub/
-  if lua_subversion == 0
-    syn match luaFunc /string\.gfind/
-    syn match luaFunc /table\.getn/
-    syn match luaFunc /table\.setn/
-    syn match luaFunc /table\.foreach/
-    syn match luaFunc /table\.foreachi/
-  elseif lua_subversion == 1
-    syn match luaFunc /string\.gmatch/
-    syn match luaFunc /string\.match/
-    syn match luaFunc /string\.reverse/
-    syn match luaFunc /table\.maxn/
-  endif
-  syn match   luaFunc /table\.concat/
-  syn match   luaFunc /table\.sort/
-  syn match   luaFunc /table\.insert/
-  syn match   luaFunc /table\.remove/
-  syn match   luaFunc /math\.abs/
-  syn match   luaFunc /math\.acos/
-  syn match   luaFunc /math\.asin/
-  syn match   luaFunc /math\.atan/
-  syn match   luaFunc /math\.atan2/
-  syn match   luaFunc /math\.ceil/
-  syn match   luaFunc /math\.sin/
-  syn match   luaFunc /math\.cos/
-  syn match   luaFunc /math\.tan/
-  syn match   luaFunc /math\.deg/
-  syn match   luaFunc /math\.exp/
-  syn match   luaFunc /math\.floor/
-  syn match   luaFunc /math\.log/
-  syn match   luaFunc /math\.log10/
-  syn match   luaFunc /math\.max/
-  syn match   luaFunc /math\.min/
-  if lua_subversion == 0
-    syn match luaFunc /math\.mod/
-  elseif lua_subversion == 1
-    syn match luaFunc /math\.fmod/
-    syn match luaFunc /math\.modf/
-    syn match luaFunc /math\.cosh/
-    syn match luaFunc /math\.sinh/
-    syn match luaFunc /math\.tanh/
-  endif
-  syn match   luaFunc /math\.pow/
-  syn match   luaFunc /math\.rad/
-  syn match   luaFunc /math\.sqrt/
-  syn match   luaFunc /math\.frexp/
-  syn match   luaFunc /math\.ldexp/
-  syn match   luaFunc /math\.random/
-  syn match   luaFunc /math\.randomseed/
-  syn match   luaFunc /math\.pi/
-  syn match   luaFunc /io\.stdin/
-  syn match   luaFunc /io\.stdout/
-  syn match   luaFunc /io\.stderr/
-  syn match   luaFunc /io\.close/
-  syn match   luaFunc /io\.flush/
-  syn match   luaFunc /io\.input/
-  syn match   luaFunc /io\.lines/
-  syn match   luaFunc /io\.open/
-  syn match   luaFunc /io\.output/
-  syn match   luaFunc /io\.popen/
-  syn match   luaFunc /io\.read/
-  syn match   luaFunc /io\.tmpfile/
-  syn match   luaFunc /io\.type/
-  syn match   luaFunc /io\.write/
-  syn match   luaFunc /os\.clock/
-  syn match   luaFunc /os\.date/
-  syn match   luaFunc /os\.difftime/
-  syn match   luaFunc /os\.execute/
-  syn match   luaFunc /os\.exit/
-  syn match   luaFunc /os\.getenv/
-  syn match   luaFunc /os\.remove/
-  syn match   luaFunc /os\.rename/
-  syn match   luaFunc /os\.setlocale/
-  syn match   luaFunc /os\.time/
-  syn match   luaFunc /os\.tmpname/
-  syn match   luaFunc /debug\.debug/
-  syn match   luaFunc /debug\.gethook/
-  syn match   luaFunc /debug\.getinfo/
-  syn match   luaFunc /debug\.getlocal/
-  syn match   luaFunc /debug\.getupvalue/
-  syn match   luaFunc /debug\.setlocal/
-  syn match   luaFunc /debug\.setupvalue/
-  syn match   luaFunc /debug\.sethook/
-  syn match   luaFunc /debug\.traceback/
-  if lua_subversion == 1
-    syn match luaFunc /debug\.getfenv/
-    syn match luaFunc /debug\.getmetatable/
-    syn match luaFunc /debug\.getregistry/
-    syn match luaFunc /debug\.setfenv/
-    syn match luaFunc /debug\.setmetatable/
-  endif
-endif
+syn keyword luaFunc clip pget pset sget
+syn keyword luaFunc sset fget fset print
+syn keyword luaFunc cursor color cls camera
+syn keyword luaFunc circ circfill line rect
+syn keyword luaFunc rectfill pal palt spr
+syn keyword luaFunc sspr add del foreach
+syn keyword luaFunc btn btnp sfx music
+syn keyword luaFunc mget mset map peek
+syn keyword luaFunc poke memcpy reload cstore
+syn keyword luaFunc memset max min mid
+syn keyword luaFunc flr cos sin atan2
+syn keyword luaFunc sqrt abs rnd srand
+syn keyword luaFunc band bor bxor bnot
+syn keyword luaFunc shl shr sub all
 
 " Define the default highlighting.
 " For version 5.7 and earlier: only when not done already
