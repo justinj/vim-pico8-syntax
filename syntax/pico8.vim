@@ -1,11 +1,5 @@
 " Vim syntax file
-" Language:	Pico 8
-" Maintainer:	Marcus Aurelius Farias <marcus.cf 'at' bol com br>
-" First Author:	Carlos Augusto Teixeira Mendes <cmendes 'at' inf puc-rio br>
-" Last Change:	2006 Aug 10
-" Options:	lua_version = 4 or 5
-"		lua_subversion = 0 (4.0, 5.0) or 1 (5.1)
-"		default 5.1
+" For the Pico-8 - modified from the Vim builtin Lua syntax file
 
 " For version 5.x: Clear all syntax items
 " For version 6.x: Quit when a syntax file was already loaded
