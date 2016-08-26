@@ -127,7 +127,11 @@ syn keyword luaFunc memset max min mid
 syn keyword luaFunc flr cos sin atan2
 syn keyword luaFunc sqrt abs rnd srand
 syn keyword luaFunc band bor bxor bnot
-syn keyword luaFunc shl shr sub all
+syn keyword luaFunc shl shr sub all pairs
+syn keyword luaFunc assert type setmetatable
+syn keyword luaFunc cocreate coresume costatus yield
+syn keyword luaFunc sgn stat cartdata dget dset
+
 
 " Define the default highlighting.
 " For version 5.7 and earlier: only when not done already
