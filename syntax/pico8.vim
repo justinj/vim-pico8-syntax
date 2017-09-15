@@ -49,7 +49,8 @@ syn match  luaError "\<\%(end\|else\|elseif\|then\|until\|in\)\>"
 syn region luaFunctionBlock transparent matchgroup=luaFunction start="\<function\>" end="\<end\>" contains=ALLBUT,luaTodo,luaSpecial,luaCond,luaCondElseif,luaCondEnd,luaRepeat
 
 " if then else elseif end
-syn keyword luaCond contained else
+syn keyword luaCond   contained else
+syn keyword luaCondSh contained if
 
 " then ... end
 syn region luaCondEnd contained transparent matchgroup=luaCond start="\<then\>" end="\<end\>" contains=ALLBUT,luaTodo,luaSpecial,luaRepeat
@@ -153,6 +154,7 @@ if version >= 508 || !exists("did_lua_syntax_inits")
   HiLink luaOperator		Operator
   HiLink luaConstant		Constant
   HiLink luaCond		Conditional
+  HiLink luaCondSh		Conditional
   HiLink luaFunction		Function
   HiLink luaComment		Comment
   HiLink luaTodo		Todo
